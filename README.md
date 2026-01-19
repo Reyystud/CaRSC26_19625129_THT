@@ -5,3 +5,5 @@ Nama Panggilan	: Reyy
 NIM		: 19625129
 
 Repository ini berisi seluruh jawaban untuk THT CaRSC Aksantara 2026.
+
+Coba integrasi Git sama VSCode
