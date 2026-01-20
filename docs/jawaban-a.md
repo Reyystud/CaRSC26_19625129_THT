@@ -24,6 +24,8 @@ Screenshot tab Source Control pada VSCode:
 Aku udah selesaiin 4 topik pertama pada bagian Main hingga Rebase Introduction serta 6 topik pertama pada bagian Remote hingga Git Pushin' di situs Learn Git Branching.
 
 Berikut adalah tangkapan layar sebagai bukti penyelesaian:
+![Main](../src/a/2c/gitmain.jpeg)
+![Remote](../src/a/2c/gitremote.jpeg)
 
 **d. Pelajari bagaimana Git dan GitHub berkomunikasi dengan SSH (Secure Shell)**
 
