@@ -10,11 +10,13 @@ a. Sebutkan setidaknya 4 commands dalam Git dan jelaskan kegunaan serta contoh p
 4. git commit, untuk menyimpan perubahan ke repo dengan pesan (contoh: git commit -m "add initial files")
 
 b. Lakukan setup untuk menghubungkan Git dan VSCode dengan GitHub.
-[x] Untuk setup dari github ke VSCode udah pernah aku lakuin sebelum" ini dan perubahan file dapat terdeteksi secara otomatis pada tab Source Control, serta branch aktif dapat terlihat dan dikelola langsung dari VSCode.
+
+Untuk setup dari github ke VSCode udah pernah aku lakuin sebelum" ini dan perubahan file dapat terdeteksi secara otomatis pada tab Source Control, serta branch aktif dapat terlihat dan dikelola langsung dari VSCode.
 
 Berikut adalah tangkapan layar tab Source Control pada VSCode:
 
 c. Tamatkan 4 topik Main pertama (hingga 4: Rebase Introduction) dan 6 topik Remote pertama (hingga 6: Git Pushin') di https://learngitbranching.js.org
-[x] Aku udah selesaiin 4 topik pertama pada bagian Main hingga Rebase Introduction serta 6 topik pertama pada bagian Remote hingga Git Pushin' di situs Learn Git Branching.
+
+Aku udah selesaiin 4 topik pertama pada bagian Main hingga Rebase Introduction serta 6 topik pertama pada bagian Remote hingga Git Pushin' di situs Learn Git Branching.
 
 Berikut adalah tangkapan layar sebagai bukti penyelesaian:
