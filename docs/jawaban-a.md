@@ -20,3 +20,9 @@ c. Tamatkan 4 topik Main pertama (hingga 4: Rebase Introduction) dan 6 topik Rem
 Aku udah selesaiin 4 topik pertama pada bagian Main hingga Rebase Introduction serta 6 topik pertama pada bagian Remote hingga Git Pushin' di situs Learn Git Branching.
 
 Berikut adalah tangkapan layar sebagai bukti penyelesaian:
+
+d. Pelajari bagaimana Git dan GitHub berkomunikasi dengan SSH (Secure Shell)
+
+Aku udah belajar tentang mekanisme komunikasi Git dan GitHub menggunakan SSH (Secure Shell), di mana autentikasi dilakukan menggunakan pasangan public key dan private key tanpa perlu memasukkan username dan password setiap kali melakukan operasi Git. Dan juga, udah ngerjain exercise "Git SSH Security" pada W3Schools sebagai bukti pemahaman terkait penggunaan SSH dalam Git.
+
+Berikut adalah tangkapan layar bukti penyelesaian exercise:
