@@ -31,4 +31,9 @@ d. Pelajari bagaimana Git dan GitHub berkomunikasi dengan SSH (Secure Shell)
 Aku udah belajar tentang mekanisme komunikasi Git dan GitHub menggunakan SSH (Secure Shell), di mana autentikasi dilakukan menggunakan pasangan public key dan private key tanpa perlu memasukkan username dan password setiap kali melakukan operasi Git. Dan juga, udah ngerjain exercise "Git SSH Security" pada W3Schools sebagai bukti pemahaman terkait penggunaan SSH dalam Git.
 
 Berikut adalah tangkapan layar bukti penyelesaian exercise:
-Berikut adalah tangkapan layar bukti penyelesaian exercise:
+
+**e Branching dan Pull Request**
+
+Disini aku pake branching pada Git dengan membuat branch __jawaban-a__ untuk mengerjakan Bagian A dan branch __jawaban-b__ untuk mengerjakan Bagian B. Setelah pengerjaan selesai, kedua branch tersebut digabungkan ke branch __main__ pake pull request di GitHub.
+
+Berikut adalah tangkapan layar riwayat branch dan proses merge menggunakan Pull Request:
