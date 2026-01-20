@@ -14,10 +14,10 @@ __gundampegasus@gmail.com__
 Untuk setup dari github ke VSCode udah pernah aku lakuin sebelum" ini dan perubahan file dapat terdeteksi secara otomatis pada tab Source Control, serta branch aktif dapat terlihat dan dikelola langsung dari VSCode.
 
 Screenshot bukti VSCode udah terintegrasi sama GitHub:
-![Source Control](src/a/2b/WhatsApp Image 2026-01-18 at 20.53.24.jpeg)
+![Integrated](src/a/2b/intgrtd.jpeg)
 
 Screenshot tab Source Control pada VSCode:
-![Source Control](src/a/2b/WhatsApp Image 2026-01-18 at 21.07.10.jpeg)
+![Source Control](src/a/2b/sourcectl.jpeg)
 
 **c. Tamatkan 4 topik Main pertama (hingga 4: Rebase Introduction) dan 6 topik Remote pertama (hingga 6: Git Pushin') di https://learngitbranching.js.org**
 
