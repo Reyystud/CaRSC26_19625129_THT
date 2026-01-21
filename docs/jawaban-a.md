@@ -213,3 +213,24 @@ Ketiga, penggunaan komponen yang mudah didapat serta teknologi cetak 3D menunjuk
 Terakhir, penggunaan sistem otonom berbasis open-source seperti PX4 memberikan pengalaman yang relevan dengan kebutuhan industri saat ini. Mahasiswa menjadi lebih siap menghadapi perkembangan teknologi drone yang banyak digunakan di berbagai bidang seperti pertanian, logistik, dan pemantauan infrastruktur.
 
 *Untuk Artikel penuhnya ada disini https://www.mdpi.com/1424-8220/25/4/1007*
+
+# **Jawaban untuk nomer A6**
+
+**a. Algoritma A* (A Star) dan D* (D star)**
+
+*Algoritma A-Star* merupakan pengembangan dari *algoritma BFS (Breadth First Search)* sehingga dasar pencarian dan algoritma hampir sama. Perbedaannya yaitu algoritma A-Star akan memilih jalur dengan nominal nilai atau biaya terkecil. Algoritma ini pertama kali dideskripsikan pada tahun 1968 oleh Peter Hart, Nils Nilsson, dan Bertram Raphael, dengan rumus :
+
+                        f(v) = g(s → v) + h(v→ r) (1)
+
+Persamaan digunakan untuk mengisi nilai masing-masing titik (node) tetangga selama proses pencarian jalur terjadi, dimana :
+
+- g(s ~> v) : Estimasi biaya/jarak dari titik start (s) ke titik v.
+- h(v ~>r) : Estimasi biaya/jarak tertentu (unik) dari titik v ke titik goal (r).
+- f(v) : Total biaya / jarak yang berasal dari titik awal ke titik goal yang melewati titik v.
+
+*Algoritma A-Star* membutuhkan variabel khusus yaitu variabel open agar tidak adanya
+pemeriksaan dua kali. Lalu algoritma A-Star akan mendaftarkan node tetangga dari setiap node yang saat ini sedang dikunjungi. Tetapi pada perulangan selanjutnya algoritma A-Star akan memilih nilai terendah dari kumpulan node pada variabel open yang terdaftar. Sehingga properti nilai pada masing-masing node adalah mutlak ada. Berikut adalah graf pohon dari algoritma A-starz1:
+
+![graf](../src/a/6a/grafalgoritmaa.jpeg)
+
+Dimana node A mencari node N, urutan pemeriksaan graf pohon diatas adalah A, B, C, F, dan terakhir N, yaitu node goal ditemukan. Pada graf tersebut nilai masing-masing node dihitung dengan Persamaan 1. Garis putus-putus pada graf tersebut menandakan area yang belum dikunjungi, garis tegas yang tidak tebal adalah node yang akan dikunjungi selanjutnya (masuk ke dalam variabel open), sedangkan garis tebal adalah node yang telah dikunjungi dan diberi tanda closed agar tidak dikunjungi kembali.
