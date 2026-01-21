@@ -190,6 +190,7 @@ Berikut adalah diagram integrasi antar komponen pada UAV untuk pemetaan menurut 
 ![uav](../src/a/5c/THTRSC26.jpg)
 
 **d. Share insight tentang artikel yang dibaca**
+
 **Multirotor UAV—A Multidisciplinary Platform for Teaching Mechatronics Engineering**
 
 Penelitian ini membahas pengembangan platform pembelajaran berbasis Unmanned Aerial Vehicle (UAV) atau drone multirotor yang digunakan sebagai media pembelajaran untuk mahasiswa teknik mekatronika. Tujuan utama dari penelitian ini adalah membantu mahasiswa memahami hubungan antara teori matematika yang cukup rumit dengan penerapannya secara langsung di dunia nyata.
