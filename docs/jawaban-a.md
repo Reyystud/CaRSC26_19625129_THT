@@ -220,7 +220,7 @@ Terakhir, penggunaan sistem otonom berbasis open-source seperti PX4 memberikan p
 
 *Algoritma A-Star* merupakan pengembangan dari *algoritma BFS (Breadth First Search)* sehingga dasar pencarian dan algoritma hampir sama. Perbedaannya yaitu algoritma A-Star akan memilih jalur dengan nominal nilai atau biaya terkecil. Algoritma ini pertama kali dideskripsikan pada tahun 1968 oleh Peter Hart, Nils Nilsson, dan Bertram Raphael, dengan rumus :
 
-                        f(v) = g(s → v) + h(v→ r) (1)
+                                f(v) = g(s → v) + h(v→ r) (1)
 
 Persamaan digunakan untuk mengisi nilai masing-masing titik (node) tetangga selama proses pencarian jalur terjadi, dimana :
 
@@ -229,8 +229,54 @@ Persamaan digunakan untuk mengisi nilai masing-masing titik (node) tetangga sela
 - f(v) : Total biaya / jarak yang berasal dari titik awal ke titik goal yang melewati titik v.
 
 *Algoritma A-Star* membutuhkan variabel khusus yaitu variabel open agar tidak adanya
-pemeriksaan dua kali. Lalu algoritma A-Star akan mendaftarkan node tetangga dari setiap node yang saat ini sedang dikunjungi. Tetapi pada perulangan selanjutnya algoritma A-Star akan memilih nilai terendah dari kumpulan node pada variabel open yang terdaftar. Sehingga properti nilai pada masing-masing node adalah mutlak ada. Berikut adalah graf pohon dari algoritma A-starz1:
+pemeriksaan dua kali. Lalu algoritma A-Star akan mendaftarkan node tetangga dari setiap node yang saat ini sedang dikunjungi. Tetapi pada perulangan selanjutnya algoritma A-Star akan memilih nilai terendah dari kumpulan node pada variabel open yang terdaftar. Sehingga properti nilai pada masing-masing node adalah mutlak ada. Berikut adalah graf pohon dari algoritma A-star:
 
 ![graf](../src/a/6a/grafalgoritmaa.jpeg)
 
 Dimana node A mencari node N, urutan pemeriksaan graf pohon diatas adalah A, B, C, F, dan terakhir N, yaitu node goal ditemukan. Pada graf tersebut nilai masing-masing node dihitung dengan Persamaan 1. Garis putus-putus pada graf tersebut menandakan area yang belum dikunjungi, garis tegas yang tidak tebal adalah node yang akan dikunjungi selanjutnya (masuk ke dalam variabel open), sedangkan garis tebal adalah node yang telah dikunjungi dan diberi tanda closed agar tidak dikunjungi kembali.
+
+*sumber: https://www.jsi.stikom-bali.ac.id/index.php/jsi/article/download/335/209*
+
+*D-Star* adalah pengembangan dari A* yang dirancang untuk lingkungan dinamis. D* tidak menghitung ulang jalur dari awal ketika ada perubahan, tetapi memperbarui jalur secara inkremental.
+
+**Prinsip utama D* adalah:**
+- Perencanaan jalur dilakukan dari tujuan ke posisi robot
+- Ketika ada obstacle baru, algoritma memperbarui jalur lokal tanpa full replan 
+
+**Kapan & di mana digunakan:**
+- UAV atau robot di lingkungan tidak diketahui
+- Eksplorasi area
+- Robot search and rescue
+- Autonomous ground vehicle militer / planetary rover
+
+**Perbedaan utama A* vs D*:**
+- A*: peta statis
+- D*: peta dinamis dan beruba
+
+**b. Proportional-Integral-Derivative (PID)**
+
+PID adalah algoritma kontrol umpan balik (feedback control) yang digunakan untuk menjaga sistem berada pada nilai yang diinginkan (setpoint).
+
+PID terdiri dari tiga komponen:
+1. Proportional (P)
+Menghasilkan output sebanding dengan error saat ini.
+Terlalu besar → sistem berosilasi.
+2. Integral (I)
+Mengakumulasi error dari waktu ke waktu untuk menghilangkan steady-state error.
+3. Derivative (D)
+Memprediksi tren error di masa depan dengan melihat laju perubahan error, sehingga meredam osilasi.
+
+ini adalah contoh diagram algoritma control pid:
+![pid](../src/a/6b/diagrampid.jpeg)
+
+**Kapan & di mana digunakan:**
+1. Kontrol attitude UAV (roll, pitch, yaw)
+2. Kontrol kecepatan motor
+3. Kontrol ketinggian (altitude hold)
+4. Sistem autopilot (PX4, ArduPilot)
+
+**Alasan PID populer:**
+1. Sederhana
+2. Efektif
+3. Mudah dituning
+4. Cocok untuk sistem real-time
