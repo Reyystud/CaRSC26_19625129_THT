@@ -158,6 +158,7 @@ Pada penerapan in real life bisa digunakan untuk
 **2.d. Perbedaan #define dan using**
 
 - __#define__
+
 #define adalah macro preprocessor, artinya:
 - Dieksekusi sebelum kompilasi
 - Hanya melakukan text substitution
@@ -174,6 +175,7 @@ SQR(1+2)  // hasilnya 5, bukan 9
 ```
 
 - __using__
+
 using diproses oleh compiler, bukan preprocessor:
 - Bertipe jelas
 - Mengikuti scope
