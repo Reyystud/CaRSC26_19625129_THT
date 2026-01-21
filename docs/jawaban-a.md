@@ -166,3 +166,48 @@ Ketiga gerak ini membentuk attitude UAV.
 **RSSI (Received Signal Strength Indicator)**
 - *Mengukur kekuatan sinyal komunikasi radio antara UAV dan GCS.*
 - *RSSI rendah → risiko kehilangan link.*
+
+**c. Komponen dalam UAV untuk pemetaan dan diagramnya**
+1. Frame – struktur utama
+2. Motor & Propeller – menghasilkan gaya angkat
+3. ESC – mengatur kecepatan motor
+4. Flight Controller (Autopilot) – pusat kendali
+5. Sensor
+6. IMU (gyro, accelerometer)
+7. GPS
+8. Barometer
+9. Power System
+10. Baterai Li-Po
+11. Power Distribution Board
+12. Payload
+13. Kamera pemetaan
+14. Communication System
+15. Telemetry radio
+16. RC receiver
+17. Ground Control Station (GCS)
+
+Berikut adalah diagram integrasi antar komponen pada UAV untuk pemetaan menurut aku:
+![uav](../src/a/5c/THTRSC26.jpg)
+
+**d. Share insight tentang artikel yang dibaca**
+**Multirotor UAV—A Multidisciplinary Platform for Teaching Mechatronics Engineering**
+
+Penelitian ini membahas pengembangan platform pembelajaran berbasis Unmanned Aerial Vehicle (UAV) atau drone multirotor yang digunakan sebagai media pembelajaran untuk mahasiswa teknik mekatronika. Tujuan utama dari penelitian ini adalah membantu mahasiswa memahami hubungan antara teori matematika yang cukup rumit dengan penerapannya secara langsung di dunia nyata.
+
+Dalam penelitian ini digunakan ekosistem PX4 yang dipadukan dengan MATLAB/Simulink sebagai lingkungan pemrograman dan simulasi. Dengan pendekatan ini, mahasiswa dapat melakukan proses pembelajaran secara bertahap, mulai dari membuat model matematika, menjalankan simulasi, hingga mengimplementasikannya langsung ke perangkat keras drone.
+
+Artikel ini juga menjelaskan capaian pembelajaran yang diharapkan, seperti kemampuan mahasiswa dalam memodelkan sistem drone secara matematis, mengenali dan memahami komponen perangkat keras (sensor dan aktuator), serta melakukan pengujian sistem kontrol pada drone multirotor.
+
+Selain itu, penelitian ini memanfaatkan teknologi additive manufacturing (cetak 3D) untuk pembuatan rangka drone. Hal ini memberikan keuntungan karena desain airframe dapat dimodifikasi dengan mudah sesuai kebutuhan eksperimen, serta dapat dibuat dengan biaya yang relatif rendah.
+
+Mahasiswa dilibatkan secara langsung melalui serangkaian workshop yang mencakup proses perakitan drone hingga pengujian perangkat lunak untuk mengatur stabilitas dan kontrol penerbangan.
+
+Dari pembahasan tersebut, terdapat beberapa poin penting yang dapat dipahami. Pertama, UAV bukan hanya sekadar alat terbang, tetapi merupakan sistem mekatronika yang menggabungkan berbagai bidang seperti mekanik, elektronika, dan pemrograman. Hal ini menjadikan drone sebagai media pembelajaran yang sangat baik untuk memahami cara kerja sistem terintegrasi.
+
+Kedua, simulasi memiliki peran yang sangat penting sebelum dilakukan pengujian langsung. Dengan menggunakan MATLAB/Simulink, mahasiswa dapat mencoba berbagai skenario tanpa risiko merusak perangkat keras, sehingga proses belajar menjadi lebih aman dan efektif.
+
+Ketiga, penggunaan komponen yang mudah didapat serta teknologi cetak 3D menunjukkan bahwa pengembangan sistem UAV untuk pembelajaran dapat dilakukan dengan biaya yang terjangkau. Hal ini membuka peluang bagi institusi pendidikan untuk mengadopsi teknologi drone tanpa memerlukan anggaran yang besar.
+
+Terakhir, penggunaan sistem otonom berbasis open-source seperti PX4 memberikan pengalaman yang relevan dengan kebutuhan industri saat ini. Mahasiswa menjadi lebih siap menghadapi perkembangan teknologi drone yang banyak digunakan di berbagai bidang seperti pertanian, logistik, dan pemantauan infrastruktur.
+
+*Untuk Artikel penuhnya ada disini https://www.mdpi.com/1424-8220/25/4/1007*
