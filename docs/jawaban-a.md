@@ -4,10 +4,10 @@ __gundampegasus@gmail.com__
 # **Jawaban untuk nomer A2**
 
 **a. Sebutkan setidaknya 4 commands dalam Git dan jelaskan kegunaan serta contoh penggunaannya.**
-1. git init, ini biasanya digunakan untuk menginialisasi repository Git baru (contoh: git init)
-2. git status, untuk menampilkan status file dalam repo (contoh: git status)
-3. git add, untuk menambahkan file ke staging area (contoh: git add .)
-4. git commit, untuk menyimpan perubahan ke repo dengan pesan (contoh: git commit -m "add initial files")
+1. **git init**, ini biasanya digunakan untuk menginialisasi repository Git baru (contoh: git init)
+2. **git status**, untuk menampilkan status file dalam repo (contoh: git status)
+3. **git add**, untuk menambahkan file ke staging area (contoh: git add .)
+4. **git commit**, untuk menyimpan perubahan ke repo dengan pesan (contoh: git commit -m "add initial files")
 
 **b. Lakukan setup untuk menghubungkan Git dan VSCode dengan GitHub.**
 
@@ -38,4 +38,32 @@ Screenshot bukti penyelesaian exercise:
 
 Disini aku pake branching pada Git dengan membuat branch __jawaban-a__ untuk mengerjakan Bagian A dan branch __jawaban-b__ untuk mengerjakan Bagian B. Setelah pengerjaan selesai, kedua branch tersebut digabungkan ke branch __main__ pake pull request di GitHub.
 
-Berikut adalah tangkapan layar riwayat branch dan proses merge menggunakan Pull Request:
+Screenshot history branch dan proses merge menggunakan Pull Request:
+![Merge](../src/a/2e/gitmerge.jpeg)
+
+# **Jawaban untuk nomer A3**
+
+**a. Install QGroundControl di Linux**
+Saya menggunakan QGroundControl sebagai ground control station untuk UAV.
+
+Ini screenshot dari main page QGC:
+![MainQGC](../src/a/3a/mainpageqgc.jpeg)
+
+**b. Fitur-fitur utama QGroundControl**
+1. **Flight Planning**  
+   Digunakan untuk merancang misi penerbangan UAV dengan menentukan waypoint, ketinggian, dan pola penerbangan sebelum misi dijalankan.
+2. **Real-Time Telemetry Monitoring**  
+   Menampilkan data penerbangan secara langsung seperti posisi GPS, ketinggian, kecepatan, orientasi UAV, serta status baterai.
+3. **Vehicle Setup & Parameter Configuration**  
+   Memungkinkan pengguna untuk mengonfigurasi parameter UAV, termasuk sensor, kontroler, dan kalibrasi sebelum penerbangan.
+4. **Map & Mission Visualization**  
+   Menampilkan peta lokasi UAV dan jalur misi secara visual sehingga operator dapat memantau pergerakan UAV dengan mudah.
+
+**c. 
+### A3.b Misi Pemetaan UAV
+Aku bikin pemetaan sederhana berbentuk area persegi panjang dengan panjang sekitar 100 meter dan lebar sekitar 80 meter pake fitur survey pada QGroundControl. Misi ini dirancang untuk mensimulasikan pemetaan area menggunakan UAV dengan jalur waypoint otomatis.
+
+Berikut adalah file misi/screenshot hasil perancangan misi pemetaan:
+![simulasiqgc](../src/3c/plan100x80.jpeg)
+
+atau file export ada di ../lampiran/mapping_100x80.plan
