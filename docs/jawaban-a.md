@@ -144,3 +144,25 @@ Hybrid UAV menggabungkan mekanisme VTOL dan HTOL.
 **Kekurangan:**
 - Sistem lebih kompleks
 - Bobot dan kontrol lebih sulit
+
+**b. Jelaskan apa itu gerak roll, yaw, dan pitch; air speed dan ground speed (beserta hubungan antara keduanya); serta HDOP dalam GPS dan RSSI dalam telekomunikasi UAV.**
+
+**Roll, Pitch, dan Yaw**
+- *Roll adalah rotasi terhadap sumbu longitudinal (miring kiri-kanan)*
+- *Pitch adalah rotasi terhadap sumbu lateral (naik-turun hidung)*
+- *Yaw adalah rotasi terhadap sumbu vertikal (berbelok kiri-kanan)*
+Ketiga gerak ini membentuk attitude UAV.
+
+**Airspeed dan Ground Speed**
+- *Airspeed merupakan kecepatan UAV relatif terhadap udara*
+- *Ground speed merupakan kecepatan UAV relatif terhadap permukaan bumi*
+**Ground Speed = Airspeed + Wind Speed (vektor)**, artinya angin dapat membuat ground speed lebih kecil atau lebih besar dari airspeed.
+
+**HDOP dan RSSI**
+**HDOP (Horizontal Dilution of Precision)**
+- *Mengukur kualitas geometri satelit GPS.*
+- *Semakin kecil HDOP → semakin akurat posisi horizontal.*
+
+**RSSI (Received Signal Strength Indicator)**
+- *Mengukur kekuatan sinyal komunikasi radio antara UAV dan GCS.*
+- *RSSI rendah → risiko kehilangan link.*
