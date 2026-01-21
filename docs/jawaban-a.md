@@ -235,8 +235,6 @@ pemeriksaan dua kali. Lalu algoritma A-Star akan mendaftarkan node tetangga dari
 
 Dimana node A mencari node N, urutan pemeriksaan graf pohon diatas adalah A, B, C, F, dan terakhir N, yaitu node goal ditemukan. Pada graf tersebut nilai masing-masing node dihitung dengan Persamaan 1. Garis putus-putus pada graf tersebut menandakan area yang belum dikunjungi, garis tegas yang tidak tebal adalah node yang akan dikunjungi selanjutnya (masuk ke dalam variabel open), sedangkan garis tebal adalah node yang telah dikunjungi dan diberi tanda closed agar tidak dikunjungi kembali.
 
-*sumber: https://www.jsi.stikom-bali.ac.id/index.php/jsi/article/download/335/209*
-
 *D-Star* adalah pengembangan dari A* yang dirancang untuk lingkungan dinamis. D* tidak menghitung ulang jalur dari awal ketika ada perubahan, tetapi memperbarui jalur secara inkremental.
 
 **Prinsip utama D* adalah:**
@@ -266,6 +264,9 @@ Mengakumulasi error dari waktu ke waktu untuk menghilangkan steady-state error.
 3. Derivative (D)
 Memprediksi tren error di masa depan dengan melihat laju perubahan error, sehingga meredam osilasi.
 
+Rumus umum PID:
+![rumuspid](../src/a/6b/rumuspid.jpeg)
+
 ini adalah contoh diagram algoritma control pid:
 ![pid](../src/a/6b/diagrampid.jpeg)
 
@@ -280,3 +281,52 @@ ini adalah contoh diagram algoritma control pid:
 2. Efektif
 3. Mudah dituning
 4. Cocok untuk sistem real-time
+
+**c. Kalman Filter dan Extended Kalman Filter (EKF)**
+
+**Kalman Filter** adalah algoritma estimasi yang digunakan untuk memperkirakan keadaan sistem (state) dari data sensor yang bising (noisy).
+
+KF bekerja dalam dua tahap utama:
+1. **Prediction**, memprediksi state berdasarkan model sistem
+2. **Update**, mengoreksi prediksi menggunakan data sensor
+KF optimal untuk sistem linear dengan noise Gaussian.
+
+**Digunakan untuk:**
+- Estimasi posisi dan kecepatan
+- Sensor fusion (menggabungkan beberapa sensor)
+- Tracking objek
+
+Karena sistem UAV bersifat non-linear, digunakan **Extended Kalman Filter (EKF)**. EKF melakukan:
+- Linearisasi sistem non-linear menggunakan Jacobian
+- Estimasi state pada sistem kompleks seperti UAV
+
+Kapan & di mana digunakan:
+1. Estimasi attitude UAV
+2. Sensor fusion IMU + GPS + barometer
+3. Autopilot PX4 & ArduPilot
+4. Navigasi drone otonom
+
+Kenapa EKF penting di UAV:
+- Sensor murah → noise tinggi
+- Data saling melengkapi
+- Posisi dan orientasi harus akurat
+
+# Referensi
+__A* & D*__
+1. Hart, P. E., Nilsson, N. J., & Raphael, B. (1968). A Formal Basis for the Heuristic Determination of Minimum Cost Paths. IEEE Transactions on Systems Science and Cybernetics.
+2. Koenig, S., & Likhachev, M. (2002). D Lite*. AAAI Conference on Artificial Intelligence.
+3. https://www.jsi.stikom-bali.ac.id/index.php/jsi/article/download/335/209*
+
+
+__PID__
+1. Åström, K. J., & Hägglund, T. (2006). Advanced PID Control. ISA.
+2. ArduPilot Documentation – Control Theory
+https://ardupilot.org/copter/docs/attitude-control.html
+3. https://www.ni.com/en/shop/labview/pid-theory-explained.html?srsltid=AfmBOoroTMZYO1wPY19L_B5mRm-nNP4iZakr_Y3_TzAcccdc2uGdDvPy#section--2054068860
+4. ChatGPT
+
+__Kalman Filter & EKF__
+1. Kalman, R. E. (1960). A New Approach to Linear Filtering and Prediction Problems. ASME Journal of Basic Engineering.
+2. Mahony, R., Kumar, V., & Corke, P. (2012). Multirotor Aerial Vehicles: Modeling, Estimation, and Control. IEEE Robotics & Automation Magazine.
+3. PX4 Autopilot – State Estimation
+https://docs.px4.io/main/en/advanced_config/ekf2.html
