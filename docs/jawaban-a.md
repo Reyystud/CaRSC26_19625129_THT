@@ -59,11 +59,26 @@ Ini screenshot dari main page QGC:
 4. **Map & Mission Visualization**  
    Menampilkan peta lokasi UAV dan jalur misi secara visual sehingga operator dapat memantau pergerakan UAV dengan mudah.
 
-**c. 
-### A3.b Misi Pemetaan UAV
+**c.** 
 Aku bikin pemetaan sederhana berbentuk area persegi panjang dengan panjang sekitar 100 meter dan lebar sekitar 80 meter pake fitur survey pada QGroundControl. Misi ini dirancang untuk mensimulasikan pemetaan area menggunakan UAV dengan jalur waypoint otomatis.
 
 Berikut adalah file misi/screenshot hasil perancangan misi pemetaan:
-![simulasiqgc](../src/3c/plan100x80.jpeg)
+![simulasiqgc](../src/a/3c/plan100x80.jpeg)
 
 atau file export ada di ../lampiran/mapping_100x80.plan
+
+# **Jawaban untuk nomer A4**
+Karena saat ini aku udah pake Arch linux jadi aku pake distrobox di sistem host Arch linux buat pake Ubuntu 22.04 LTS nya. Di dalam environment Ubuntu tersebut, aku install paket-paket pendukung pengembangan menggunakan apt serta menginstal ROS2 Humble.
+
+![Arch](../src/a/4/arch.jpeg)
+![Ubuntu](../src/a/4/ubuntu.jpeg)
+
+Untuk screenshot install python dll tadi lupa di screenshot, jadi aku pake bagian install rosnya aja
+
+![Rosinstall](../src/a/4/instalros.jpeg)
+
+Setelah instalasi berhasil, aku coba run sistem talker–listener bawaan ROS2 Humble menggunakan dua terminal terpisah, dimana node talker mengirimkan pesan dan node listener menerima pesan tersebut secara real-time.
+
+![talkListen](../src/a/4/talk-listen.jpeg)
+
+
