@@ -34,7 +34,7 @@ Aku udah belajar tentang mekanisme komunikasi Git dan GitHub menggunakan SSH (Se
 Screenshot bukti penyelesaian exercise:
 ![Exercise](../src/a/2d/exercisessh.jpeg)
 
-**e Branching dan Pull Request**
+**e. Branching dan Pull Request**
 
 Disini aku pake branching pada Git dengan membuat branch __jawaban-a__ untuk mengerjakan Bagian A dan branch __jawaban-b__ untuk mengerjakan Bagian B. Setelah pengerjaan selesai, kedua branch tersebut digabungkan ke branch __main__ pake pull request di GitHub.
 
@@ -44,6 +44,7 @@ Screenshot history branch dan proses merge menggunakan Pull Request:
 # **Jawaban untuk nomer A3**
 
 **a. Install QGroundControl di Linux**
+
 Saya menggunakan QGroundControl sebagai ground control station untuk UAV.
 
 Ini screenshot dari main page QGC:
