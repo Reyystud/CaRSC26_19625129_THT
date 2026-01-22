@@ -271,3 +271,99 @@ Dalam ROS2, shared_ptr sering dipake buat node dan message tetapi penggunaan yan
 3. ISO C++ Reference – https://en.cppreference.com
 4. Herb Sutter – C++ Core Guidelines
 5. ROS 2 Documentation – https://docs.ros.org/en/humble/
+
+# Dasar Pemrograman 3: Multithreading
+**3.a. Jelaskan konsep dasar multithreading.**
+
+**Multithreading** adalah kemampuan sebuah program untuk menjalankan lebih dari satu alur eksekusi (thread) secara concurrent (bersamaan). Setiap thread memiliki instruction pointer sendiri, tetapi biasanya berbagi memori yang sama dalam satu proses.
+
+Multireading ini penting karena jika memiliki tugas yang berat, aka tidak akan memblokir tugas lainnya. Serta multithreading memanfaatkan multi core CPU dalam cara kerjanya. TErakhir, multithreading menggunakan real time sysstem yaotu beberapa proses harus berjalan secara paralel.
+
+Contoh penggunaan dalam UAV:
+- Thread 1: membaca telemetri (GPS, IMU)
+- Thread 2: menerima video stream
+- Thread 3: kontrol & logging
+
+Tanpa menggunakan multithreading, satu tugas lambat bisa menghambat sistem secara keseluruhan yang akibatnya bisa berbahaya pada sistem real time.
+
+**3.b. Implementasi Program Multithreading**
+- Thread 1: simulasi stream video -> print message tiap 2 detik
+- Thread 2: simulasi telemetri -> baca filr telemetry.txt, print tiap baris 3 detik
+- Keduanya akan berjalan secara bersamaan yang estimasi waktunya adalah +- 10 detik.
+
+Contoh isi telemetry.txt
+```txt
+ALT: 100 m
+SPD: 12 m/s
+GPS: -7.95, 112.61
+BAT: 11.1 V
+```
+
+Kode C++ yang digunakan menggunakan (std::thread)
+```cpp
+#include <iostream>
+#include <thread>
+#include <fstream>
+#include <chrono>
+#include <atomic>
+
+std::atomic<bool> running(true);
+
+void videoStream() {
+    while (running) {
+        std::cout << "[VIDEO] Receiving video frame..." << std::endl;
+        std::this_thread::sleep_for(std::chrono::seconds(2));
+    }
+}
+
+void telemetryStream() {
+    std::ifstream file("telemetry.txt");
+    std::string line;
+
+    while (running && std::getline(file, line)) {
+        std::cout << "[TELEMETRY] " << line << std::endl;
+        std::this_thread::sleep_for(std::chrono::seconds(3));
+    }
+}
+
+int main() {
+    std::thread videoThread(videoStream);
+    std::thread telemetryThread(telemetryStream);
+
+    std::this_thread::sleep_for(std::chrono::seconds(10));
+    running = false;
+
+    videoThread.join();
+    telemetryThread.join();
+
+    std::cout << "Program finished." << std::endl;
+    return 0;
+}
+```
+
+Masing-masing syntax yang digunakan sangat penting untuk berjalannya program:
+- **std::thread**, untuk membuat thread baru.
+- **std::this_thread::sleep_for()**, untuk Menyimulasikan delay seperti data real time.
+- **std::atomic<bool>**, untuk sinkronisasi aman antar thread serta mencegah race condition.
+- **join()**, untuk menunggu thread selesai sebelum program keluar.
+
+Contoh Output ketika sudah di run +- 10 detik:
+```txt
+[VIDEO] Receiving video frame...
+[TELEMETRY] ALT: 100 m
+[VIDEO] Receiving video frame...
+[TELEMETRY] SPD: 12 m/s
+[VIDEO] Receiving video frame...
+[VIDEO] Receiving video frame...
+[TELEMETRY] GPS: -7.95, 112.61
+[VIDEO] Receiving video frame...
+Program finished.
+```
+Disini terlihat bahwa dua thread berjalan secara bersamaan tanpa saling mengganggu.
+
+**Referensi**
+1. B. Stroustrup, The C++ Programming Language, Addison-Wesley
+2. Anthony Williams, C++ Concurrency in Action, Manning
+3. ISO C++ Reference – https://en.cppreference.com/w/cpp/thread
+4. Herb Sutter – C++ Concurrency Guidelines
+5. ROS 2 Executor & Multithreading Documentation
