@@ -220,7 +220,7 @@ Terakhir, penggunaan sistem otonom berbasis open-source seperti PX4 memberikan p
 
 *Algoritma A-Star* merupakan pengembangan dari *algoritma BFS (Breadth First Search)* sehingga dasar pencarian dan algoritma hampir sama. Perbedaannya yaitu algoritma A-Star akan memilih jalur dengan nominal nilai atau biaya terkecil. Algoritma ini pertama kali dideskripsikan pada tahun 1968 oleh Peter Hart, Nils Nilsson, dan Bertram Raphael, dengan rumus :
 
-                                   f(v) = g(s → v) + h(v→ r)
+                           d        f(v) = g(s → v) + h(v→ r)
 
 Persamaan digunakan untuk mengisi nilai masing-masing titik (node) tetangga selama proses pencarian jalur terjadi, dimana :
 
