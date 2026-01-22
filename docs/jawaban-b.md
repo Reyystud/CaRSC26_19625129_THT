@@ -443,3 +443,57 @@ Pendekatan ini memungkinkan UAV memiliki sistem yang efisien, modular, dan andal
 3. NuttX RTOS Documentation – https://nuttx.apache.org
 4. FreeRTOS Documentation – https://www.freertos.org
 5. ArduPilot Developer Wiki – https://ardupilot.org/dev/
+
+# Jawaban Control and Perception (ConCept)
+**1. Konsep-konsep dasar ROS**
+
+**Robot Operating System (ROS)** adalah kumpulan pustaka dan alat bantu yang digunakan untuk membangun sistem robot dan UAV secara modular. Pada ROS2, sebuah sistem tidak dibangun sebagai satu program besar, melainkan sebagai kumpulan komponen kecil yang saling berkomunikasi. Komponen-komponen tersebut dihubungkan melalui beberapa konsep utama, yaitu nodes, topics, services, parameters, dan actions.
+
+**Nodes**
+
+Node dalam ROS dapat dipahami sebagai program atau proses mandiri yang menjalankan satu tugas tertentu. Setiap node memiliki tanggung jawab spesifik dan berjalan secara independen dari node lain. Pendekatan ini membuat sistem lebih mudah dikembangkan dan dirawat karena setiap fungsi dipisahkan dengan jelas.
+
+**Analogi:**
+
+Node dapat dianalogikan sebagai aplikasi terpisah di dalam satu komputer. Masing-masing aplikasi memiliki fungsi sendiri, tetapi tetap dapat saling berinteraksi.
+
+Dalam sistem UAV, node bisa berupa pembaca sensor IMU, node GPS, node kontrol, atau node komunikasi dengan Ground Control Station.
+
+**Topics**
+
+Topic adalah mekanisme komunikasi utama dalam ROS yang menggunakan pola publish–subscribe. Sebuah node dapat mengirimkan data ke sebuah topic, sementara node lain dapat menerima data dari topic tersebut tanpa perlu mengetahui siapa pengirimnya. Komunikasi ini bersifat asynchronous dan cocok untuk data yang terus diperbarui.
+
+**Analogi**
+
+Topic seperti siaran radio. Stasiun radio menyiarkan informasi, dan siapa pun yang menyetel frekuensi tersebut dapat mendengarkan tanpa perlu mengenal satu sama lain.
+
+Dalam UAV, topic sering digunakan untuk mengirim data sensor, posisi, atau status sistem secara terus-menerus.
+
+**Services**
+
+Service adalah mekanisme komunikasi request–response antara dua node. Satu node bertindak sebagai server yang menyediakan layanan tertentu, sementara node lain bertindak sebagai client yang mengirim permintaan dan menunggu balasan.
+
+**Analogi:**
+
+Service mirip seperti memanggil fungsi. Kita memberikan input, lalu menunggu hasil keluarannya.
+
+Dalam sistem UAV, service biasanya digunakan untuk permintaan yang bersifat spesifik dan tidak terus-menerus, seperti meminta status sistem, mengubah mode terbang, atau melakukan reset.
+
+**Parameters**
+
+Parameter adalah nilai konfigurasi yang melekat pada sebuah node dan dapat diakses atau diubah saat sistem berjalan. Parameter digunakan untuk menyimpan nilai-nilai yang memengaruhi perilaku node tanpa harus mengubah kode program.
+
+**Analogi:**
+
+Parameter dapat dianalogikan sebagai pengaturan (settings) pada sebuah aplikasi, seperti volume atau brightness, yang bisa diubah tanpa menginstal ulang aplikasi tersebut.
+
+Dalam UAV, parameter sering digunakan untuk menyimpan nilai gain kontrol, batas sensor, atau konfigurasi komunikasi.
+
+**Actions**
+
+Action digunakan untuk menangani tugas yang membutuhkan waktu relatif lama dan memiliki beberapa tahap. Action memungkinkan sebuah node untuk memulai tugas, memantau progresnya, serta membatalkan tugas tersebut jika diperlukan.
+
+**Analogi:**
+Action seperti mengunduh file. Kita bisa melihat progres unduhan dan membatalkannya sebelum selesai.
+
+Dalam UAV, action cocok untuk tugas seperti navigasi ke waypoint, proses takeoff otomatis, atau misi tertentu yang berlangsung dalam durasi waktu tertentu.
