@@ -14,6 +14,7 @@ Seluruh jawaban disusun dalam format Markdown agar mudah dibaca, ditinjau, dan d
 ---
 
 ## Struktur Repository
+```
 CaRSC26_19625129_THT
 ├── README.md
 ├── docs
@@ -21,6 +22,7 @@ CaRSC26_19625129_THT
 │ └── jawaban-b.md
 └── assets
 └── images
+```
 
 ---
 
