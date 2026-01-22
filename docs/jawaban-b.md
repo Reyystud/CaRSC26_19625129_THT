@@ -392,11 +392,65 @@ Pendekatan ini membuat sistem UAV modular, efisien, dan andal.
 
 ROS2 membangun sistem sebagai kumpulan node yang berkomunikasi menggunakan topic, service, parameter, dan action.
 
-* **Node:** unit program mandiri
-* **Topic:** komunikasi publish–subscribe
-* **Service:** request–response
-* **Parameter:** konfigurasi runtime
-* **Action:** tugas berdurasi panjang
+| ROS           | Analogi     | Ingatannya      |
+| ------------- | ----------- | --------------- |
+| **Node**      | Pekerja     | Yang ngerjain   |
+| **Topic**     | Radio       | Ngomong terus   |
+| **Service**   | Tanya jawab | Sekali doang    |
+| **Parameter** | Setting     | Nilai aturan    |
+| **Action**    | Ojol        | Lama + progress |
+
+---
+
+* **Node:** program kecil yang menjalankan satu tugas spesifik di ROS.
+Satu sistem robot biasanya terdiri dari banyak node.
+- Mata node = kamera
+- Tangan = node motor
+- Otak = node kontrol
+- Kurir paker = node pengantar
+- Aplikasi = node server
+> Node = *pekerja spesialis, satu node satu tugas*
+
+---
+
+* **Topic:** jalur komunikasi satu arah untuk kirim data terus-menerus (publish–subscribe).
+- Publisher kayak radio cuaca yang selalu ngirim data
+- Subscriber kayak orang yang dengerin radio karena selalu nerima data
+- Tidak peduli siapa yang ngirim, asal topiknya sama
+> Topic = *pengumuman satu arah, realtime, rame-rame*
+
+---
+
+* **Service:** komunikasi request–response (tanya - jawab). Dipakai kalau butuh jawaban sekali, bukan streaming.
+Contoh analogi:
+- Kamu: “Hari ini gimana?”
+- Doi: “Biasa aja”
+- Selesai. Gaada kelanjutan. Kayak kamu sama dia yahahay
+Contoh di ROS yaitu reset odometry, ambil status baterai, dll.
+> Service = nanya, dapet jawaban, selesai.
+
+* **Parameter:** nilai konfigurasi yang bisa dibaca node. (Bisa diubah tanpa kode dan biasanya buat setting).
+
+**Setting di HP / motor**
+
+- Volume
+- Brightness
+- Kecepatan maksimum motor
+- Sensitivitas rem
+> Parameter = setting
+
+* **Action:** tugas berdurasi panjang (butuh waktu, bisa dikasih feedback, bisa dibatalkan).
+Contoh ojol antar makanan
+- Kamu pesan makanan (goal)
+- Ojol kasih update: “di resto”, “otw” (feedback)
+- Kamu bisa cancel
+- Sampai trus selesai (result)
+
+Contoh di ROS:
+- Navigasi ke titik tujuan
+- Gerak lengan robot
+- Proses scanning area
+> Action = tugas panjang + progress + bisa dibatalin
 
 
 ### **Sistem publisher dan subscriber dalam C++**
