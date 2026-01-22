@@ -367,3 +367,79 @@ Disini terlihat bahwa dua thread berjalan secara bersamaan tanpa saling menggang
 3. ISO C++ Reference – https://en.cppreference.com/w/cpp/thread
 4. Herb Sutter – C++ Concurrency Guidelines
 5. ROS 2 Executor & Multithreading Documentation
+
+# Firmware dan Sistem Benam
+**1. Apa itu firmware dan bagaimana perbedaannya dengan perangkat lunak (software) pada umumnya? Jelaskan juga peran firmware dalam sistem UAV.**
+
+**Firmware** adalah low level software yang tertanam (embedded) langsung pada hardware dan berfungsi sebagai penghubung antara hardware dan software tingkat atas. Firmware biasanya disimpan pada memori non volatile seperti Flash atau ROM dan jarang diubah dibandingkan software aplikasi.
+
+| Aspek            | Firmware             | Software                  |
+| ---------------- | -------------------- | ------------------------- |
+| Lokasi           | Tertanam di hardware | Sistem operasi / aplikasi |
+| Akses hardware   | Langsung             | Melalui OS / driver       |
+| Frekuensi update | Jarang               | Sering                    |
+| Real-time        | Iya                   | Tidak selalu              |
+
+Dalam UAV, Firmware berperan penting untuk beberapa aspek. Pertama, firmware mengendalikan motor, sensor, dan aktuator. Selain itu, firmware menjalankan flight control loop. Terakhir, firmware menangani komunikasi (PWM, UART, I2C, SPI). Contoh firmware yang biasanya digunakan di UAV adalah PX4 dan ArduPilot.
+
+_Kesimpulannya, firmware adalah otak utama UAV, tanpa firmware UAV tidak bisa terbang stabil._
+
+**2. Jelaskan konsep Real-Time Operating System (RTOS) dan mengapa RTOS penting dalam pengembangan sistem UAV.**
+
+**RTOS (Real-Time Operating System)** merupakan operation system yang dirancang untuk menjamin respon deterministik terhadap suatu event dalam batas deadline. Namun ini berbeda dengan operating system umum, RTOS tidak hanya mengejar kecepatan, tetapi ketetapan waktu.
+
+**Karakteristik RTOS**
+- Deterministic scheduling
+- Prioritas task
+- Interrupt handling cepat
+- Latency rendah
+
+RTOS sangat penting untuk UAV karena UAV merupakan sistem real time sehingga kontrol attitude harus dieksekusi dalam milidetik serta keterlambatan kecil bisa menyebabkan instabilitas atau crash. Sehingga dengan menggunakan RTOS maka control task punya prioritas yang tinggi dan untuk task non kritis seperti logging dan telemetry tidak akan mengganggu kontrol utama.
+
+Contoh RTOS:
+- FreeRTOS
+- NuttX (digunakan PX4)
+- Zephyr
+
+**3. Jelaskan konsep dasar komunikasi serial (UART, SPI, I2C) dan bagaimana protokol-protokol ini digunakan dalam sistem UAV untuk berkomunikasi antara berbagai komponen.**
+
+Dalam sistem UAV, berbagai komponen seperti sensor, aktuator, dan modul komunikasi perlu saling bertukar data secara cepat dan andal. Karena keterbatasan ruang, daya, dan kompleksitas sistem, komunikasi antar komponen tersebut umumnya menggunakan komunikasi serial, yaitu metode pengiriman data satu bit demi satu bit melalui jalur tertentu.
+
+Tiga protokol komunikasi serial yang paling umum digunakan dalam sistem UAV adalah UART, SPI, dan I2C. Ketiganya memiliki karakteristik, kelebihan, dan kegunaan yang berbeda, sehingga pemilihannya sangat bergantung pada kebutuhan sistem dan jenis perangkat yang dihubungkan.
+
+**UART dalam Sistem UAV**
+
+UART (Universal Asynchronous Receiver-Transmitter) adalah protokol komunikasi serial asynchronous, artinya pengirim dan penerima tidak berbagi sinyal clock yang sama. Sebagai gantinya, kedua perangkat harus disepakati terlebih dahulu parameter komunikasi seperti baud rate, jumlah bit data, parity, dan stop bit.
+
+Dalam UAV, UART sangat sering digunakan untuk komunikasi dengan perangkat yang berada relatif jauh dari flight controller atau membutuhkan koneksi sederhana dan stabil. Contohnya adalah modul GPS, radio telemetry, dan link komunikasi dengan ground control station.
+
+Keunggulan utama UART adalah kesederhanaannya. Implementasi UART relatif mudah, baik dari sisi hardware maupun software, dan hampir semua mikrocontroller menyediakan peripheral UART bawaan. Namun, karena bersifat point-to-point dan tidak memiliki mekanisme addressing, UART kurang cocok untuk menghubungkan banyak perangkat dalam satu jalur komunikasi.
+
+**SPI dalam Sistem UAV**
+
+SPI (Serial Peripheral Interface) adalah protokol komunikasi serial synchronous yang menggunakan sinyal clock yang dikirim oleh perangkat master. Dalam sistem UAV, flight controller biasanya bertindak sebagai master, sedangkan sensor bertindak sebagai slave.
+
+SPI dikenal karena kecepatan transfer data yang tinggi dan latensi yang rendah, sehingga sangat cocok untuk perangkat yang memerlukan pembacaan data secara cepat dan kontinu. Oleh karena itu, sensor-sensor kritis seperti IMU (accelerometer dan gyroscope) sering dihubungkan melalui SPI.
+
+Karakteristik utama SPI adalah penggunaan beberapa jalur komunikasi, termasuk jalur clock, data masuk, data keluar, dan chip select. Konsekuensinya, SPI membutuhkan lebih banyak pin dibandingkan protokol lain, sehingga jarak komunikasi biasanya pendek dan topologi sistem menjadi lebih kompleks. Namun, trade-off ini dianggap wajar demi performa yang tinggi, terutama untuk sistem kontrol real-time seperti UAV.
+
+**I2C dalam Sistem UAV**
+
+I2C (Inter-Integrated Circuit) adalah protokol komunikasi serial synchronous yang dirancang untuk menghubungkan banyak perangkat dalam satu bus menggunakan hanya dua jalur, yaitu data (SDA) dan clock (SCL). Setiap perangkat pada bus memiliki alamat unik, sehingga flight controller dapat berkomunikasi dengan banyak sensor menggunakan jalur yang sama.
+
+Dalam UAV, I2C sering digunakan untuk sensor dengan kebutuhan bandwidth yang relatif rendah, seperti barometer, magnetometer, atau sensor suhu. Kelebihan utama I2C adalah efisiensi wiring dan kemudahan integrasi banyak perangkat sekaligus.
+
+Namun, karena menggunakan pull-up resistor dan kecepatan transfer yang lebih rendah dibandingkan SPI, I2C lebih sensitif terhadap noise dan kurang cocok untuk komunikasi berkecepatan tinggi atau jarak jauh. Oleh sebab itu, I2C biasanya digunakan untuk sensor pendukung, bukan sensor utama kontrol stabilitas.
+
+**Pemilihan Protokol dalam Desain UAV**
+
+Dalam praktiknya, sistem UAV jarang hanya menggunakan satu jenis protokol komunikasi. Sebaliknya, desainer sistem akan mengombinasikan UART, SPI, dan I2C sesuai kebutuhan masing-masing komponen. Sensor yang memerlukan data cepat dan presisi tinggi akan dihubungkan melalui SPI, sensor pendukung melalui I2C, dan perangkat komunikasi eksternal melalui UART.
+
+Pendekatan ini memungkinkan UAV memiliki sistem yang efisien, modular, dan andal, serta mampu memenuhi kebutuhan real-time dan keterbatasan hardware yang ada.
+
+**Referensi**
+1. Jonathan W. Valvano, Embedded Systems: Real-Time Operating Systems for ARM Cortex-M, Texas Instruments
+2. PX4 Autopilot Documentation – https://docs.px4.io
+3. NuttX RTOS Documentation – https://nuttx.apache.org
+4. FreeRTOS Documentation – https://www.freertos.org
+5. ArduPilot Developer Wiki – https://ardupilot.org/dev/
