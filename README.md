@@ -24,8 +24,6 @@ CaRSC26_19625129_THT
 │   └── src
 │       └── a
 │           └── 2e
-├── exit
-├── exit.pub
 ├── lampiran
 │   └── mapping_100x80.plan
 └── src
