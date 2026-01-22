@@ -425,7 +425,7 @@ Satu sistem robot biasanya terdiri dari banyak node.
 Contoh analogi:
 - Kamu: “Hari ini gimana?”
 - Doi: “Biasa aja”
-- Selesai. Gaada kelanjutan. Kayak kamu sama dia yahahay
+- Selesai. Gaada kelanjutan.
 Contoh di ROS yaitu reset odometry, ambil status baterai, dll.
 > Service = nanya, dapet jawaban, selesai.
 
