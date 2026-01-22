@@ -18,10 +18,45 @@ Seluruh jawaban disusun dalam format Markdown agar mudah dibaca, ditinjau, dan d
 CaRSC26_19625129_THT
 ├── README.md
 ├── docs
-│ ├── jawaban-a.md
-│ └── jawaban-b.md
-└── assets
-└── images
+│   ├── jawaban-a.md
+│   ├── jawaban-b.md
+│   ├── progres.md
+│   └── src
+│       └── a
+│           └── 2e
+├── exit
+├── exit.pub
+├── lampiran
+│   └── mapping_100x80.plan
+└── src
+    ├── a
+    │   ├── 2b
+    │   │   ├── intgrtd.jpeg
+    │   │   └── sourcectl.jpeg
+    │   ├── 2c
+    │   │   ├── gitmain.jpeg
+    │   │   └── gitremote.jpeg
+    │   ├── 2d
+    │   │   └── exercisessh.jpeg
+    │   ├── 2e
+    │   │   └── gitmerge.jpeg
+    │   ├── 3a
+    │   │   └── mainpageqgc.jpeg
+    │   ├── 3c
+    │   │   └── plan100x80.jpeg
+    │   ├── 4
+    │   │   ├── arch.jpeg
+    │   │   ├── instalros.jpeg
+    │   │   ├── talk-listen.jpeg
+    │   │   └── ubuntu.jpeg
+    │   ├── 5c
+    │   │   └── THTRSC26.jpg
+    │   ├── 6a
+    │   │   └── grafalgoritmaa.jpeg
+    │   └── 6b
+    │       ├── diagrampid.jpeg
+    │       └── rumuspid.jpeg
+    └── b
 ```
 
 ---
